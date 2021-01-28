@@ -1,0 +1,47 @@
+{
+  "name": "mui-rhf",
+  "version": "1.0.0",
+  "description": "Form generator based on Material UI and React Hook Form",
+  "main": "dist/index.js",
+  "author": "clement-faure <dev@clement-faure.fr>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clement-faure/mui-rhf.git"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "npm",
+    "material-ui",
+    "react-hook-form"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "start": "rollup -c -w"
+  },
+  "files": [
+    "dist"
+  ],
+  "bugs": {
+    "url": "https://github.com/clement-faure/mui-rhf/issues"
+  },
+  "homepage": "https://github.com/clement-faure/mui-rhf#readme",
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.1.0",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.22",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "prettier": "^2.2.1",
+    "prettierrc": "^0.0.0-5",
+    "rollup": "^2.38.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.1.3"
+  }
+}
