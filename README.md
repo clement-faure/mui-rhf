@@ -1,6 +1,6 @@
 # mui-rhf
 
-Quickly build powerful forms.
+Quickly build powerful forms using [Material UI](https://material-ui.com/) and [React Hook Form](https://react-hook-form.com/)
 
 ## Installation
 
@@ -13,6 +13,10 @@ npm install mui-rhf
 // with yarn
 yarn add mui-rhf
 ```
+
+## Usage
+
+Work in progress...
 
 ## Contributors ✨
 

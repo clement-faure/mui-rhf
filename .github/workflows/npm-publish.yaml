@@ -2,20 +2,42 @@ name: npm-publish
 on:
   push:
     branches:
-      - master
+      - "master"
+      - "next"
+  pull_request:
+
 jobs:
-  publish:
+  test:
+    name: "Node ${{ matrix.node }}"
+    runs-on: ubuntu-latest
+    # Create multiple jobs for each node version
+    strategy:
+      matrix:
+        node: [10, 12, 14]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Install dependencies
+        run: yarn install
+      - run: yarn test:ci
+        
+  publish-module:
+    name: "Publish Module to NPM"
+    needs: test
+    # publish only when merged in master on original repo, not on PR
+    if: github.repository == 'clement-faure/mui-rhf' && (github.ref == 'refs/heads/master')
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     # Setup .npmrc file to publish to npm
     - uses: actions/setup-node@v1
       with:
-        node-version: '12.x'
+        node-version: 14
         registry-url: 'https://registry.npmjs.org'
-    # Install dependencies using yarn
-    - run: yarn install
-    - run: yarn test:unit
+    - name: Install dependencies
+      run: yarn install
     - run: yarn build
     - run: npm publish
       env:
