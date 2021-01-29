@@ -17,7 +17,7 @@
     "react-hook-form"
   ],
   "scripts": {
-    "test": "jest",
+    "test:unit": "jest",
     "build": "rollup -c",
     "start": "rollup -c -w"
   },

@@ -4,7 +4,7 @@ on:
     branches:
       - master
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -13,8 +13,10 @@ jobs:
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
+    # Install dependencies using yarn
     - run: yarn install
+    - run: yarn test:unit
     - run: yarn build
-    - run: yarn npm publish
+    - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
