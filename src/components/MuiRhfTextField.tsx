@@ -1,9 +1,7 @@
 import * as React from "react";
 
-const MuiRhfTextField: React.FC = () => (
-  <div>
-    <h2>MuiRhfTextField</h2>
-  </div>
-);
+import { TextField } from "@material-ui/core";
+
+const MuiRhfTextField: React.FC = () => <TextField />;
 
 export default MuiRhfTextField;
