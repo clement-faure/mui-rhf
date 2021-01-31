@@ -1,5 +1,3 @@
 import MuiRhfTextField from "./MuiRhfTextField";
 
-export default {
-  MuiRhfTextField,
-};
+export default { MuiRhfTextField };
