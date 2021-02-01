@@ -1,15 +1,18 @@
 import React from "react";
 
-import { cleanup, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
+import { renderHook, act } from "@testing-library/react-hooks";
+
+import { useForm } from "react-hook-form";
 
 import MuiRhfTextField from "../MuiRhfTextField";
 
-// Note: running cleanup afterEach is done automatically for you in @testing-library/react@9.0.0 or higher
-// unmount and cleanup DOM after the test is finished.
-afterEach(cleanup);
-
 describe("Basic render", () => {
   it("render MuiRhfTextField", () => {
-    render(<MuiRhfTextField />);
+    const { result } = renderHook(() => useForm());
+    const { control, errors /**, loading */ } = result.current;
+    render(
+      <MuiRhfTextField control={control} errors={errors} name="textField" />
+    );
   });
 });
