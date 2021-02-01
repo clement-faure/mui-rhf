@@ -1,7 +1,7 @@
 import React from "react";
 
 import { render } from "@testing-library/react";
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook } from "@testing-library/react-hooks";
 
 import { useForm } from "react-hook-form";
 
