@@ -1,3 +1,4 @@
+import { Control, FieldErrors } from "react-hook-form";
 import { GridSpacing, GridProps } from "@material-ui/core";
 import {
   MuiRhfTextFieldProps,
@@ -24,10 +25,10 @@ type MuiRhfFormFieldConditionalProps = {
 };
 
 type MuiRhfFormField = {
+  name: string;
   label?: string;
-  name?: string;
-  type: keyof MuiRhfFieldComponentMap;
-  props: any;
+  props?: any;
+  type?: keyof MuiRhfFieldComponentMap;
   gridProps?: Pick<GridProps, "xs" | "sm" | "md" | "lg" | "xl">;
   condition?: MuiRhfFormFieldCondition; // Union
   conditions?: MuiRhfFormFieldCondition; // Intersection
@@ -43,4 +44,6 @@ export type MuiRhfFormProps = {
   headers?: MuiRhfFormHeader[];
   spacing?: GridSpacing;
   watch?: RhfWatch;
+  control: Control;
+  errors: FieldErrors;
 };
