@@ -5,7 +5,7 @@ import { Controller } from "react-hook-form";
 import { TextField, TextFieldProps } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 
-import { MuiRhfFieldProps } from "~/typings";
+import { MuiRhfFieldProps } from "~/models/fields";
 
 type MuiRhfAutocompleteProps = MuiRhfFieldProps & {
   defaultValue?: unknown;

@@ -7,20 +7,10 @@ import {
   FormControl,
   Select,
   MenuItem,
-  SelectProps,
   FormHelperText,
 } from "@material-ui/core";
 
-import { MuiRhfFieldProps } from "~/typings";
-
-type MuiRhfSelectProps = MuiRhfFieldProps & {
-  defaultValue?: unknown;
-  select?: SelectProps;
-  options: {
-    value: string | number | readonly string[] | undefined;
-    label: string;
-  }[];
-};
+import { MuiRhfSelectProps } from "~/models/fields";
 
 const MuiRhfSelect: React.FC<MuiRhfSelectProps> = ({
   control,
