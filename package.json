@@ -23,7 +23,7 @@
     "test:unit:dev": "jest --watch",
     "test:unit": "jest",
     "coverage:unit": "jest --coverage; open coverage/lcov-report/index.html",
-    "build": "cross-env NODE_ENV=production tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
+    "build": "rm -rf ./dist && cross-env NODE_ENV=production tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
     "start": "tsc -w"
   },
   "files": [

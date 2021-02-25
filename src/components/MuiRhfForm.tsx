@@ -2,17 +2,17 @@ import React from "react";
 
 import { Grid } from "@material-ui/core";
 
-import {
-  MuiRhfFormProps,
-  fieldComponentMap,
-  defaultFieldComponent,
-} from "~/models/form";
+import { MuiRhfFormProps, fieldComponentMap } from "~/models/form";
+
+import MuiRhfTextField from "./MuiRhfTextField";
 
 const MuiRhfForm: React.FC<MuiRhfFormProps> = ({
   fields,
   headers,
-  spacing = 1,
   watch,
+  control,
+  errors,
+  spacing = 1,
 }) => {
   return (
     <>
@@ -36,9 +36,9 @@ const MuiRhfForm: React.FC<MuiRhfFormProps> = ({
                 ({
                   name,
                   label,
-                  props,
+                  props = {},
                   gridProps = {},
-                  type,
+                  type = "textField",
                   condition,
                   conditions,
                   conditionalProps,
@@ -46,9 +46,9 @@ const MuiRhfForm: React.FC<MuiRhfFormProps> = ({
                   // Initialize dynamic props based on watched values
                   const extra: { [key: string]: any } = {};
 
-                  // Construct field, take textField by default
                   const MuiRhfField =
-                    fieldComponentMap[type] || defaultFieldComponent;
+                    fieldComponentMap[type] || // Retrieve component depending on type
+                    MuiRhfTextField; //fallback to textField in case not valid type
 
                   if (watch) {
                     // Union will be used in condition keys
@@ -125,6 +125,7 @@ const MuiRhfForm: React.FC<MuiRhfFormProps> = ({
                       });
                     }
                   }
+
                   return (
                     <Grid
                       key={name || label}
@@ -133,10 +134,12 @@ const MuiRhfForm: React.FC<MuiRhfFormProps> = ({
                       {...gridProps}
                     >
                       <MuiRhfField
-                        label={label}
-                        name={name || label}
                         {...props}
                         {...extra}
+                        label={label}
+                        name={name}
+                        control={control}
+                        errors={errors}
                       />
                     </Grid>
                   );
