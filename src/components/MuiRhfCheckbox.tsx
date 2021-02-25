@@ -4,18 +4,12 @@ import { Controller } from "react-hook-form";
 
 import {
   Checkbox,
-  CheckboxProps,
   FormControl,
   FormControlLabel,
   FormHelperText,
 } from "@material-ui/core";
 
-import { MuiRhfFieldProps } from "~/typings";
-
-type MuiRhfCheckboxProps = MuiRhfFieldProps &
-  Omit<CheckboxProps, "defaultValue" | "onChange" | "label"> & {
-    defaultValue?: unknown;
-  };
+import { MuiRhfCheckboxProps } from "~/models/fields";
 
 const MuiRhfCheckbox: React.FC<MuiRhfCheckboxProps> = ({
   control,
