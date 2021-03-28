@@ -3,6 +3,7 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 
 import { MuiRhfFormProps, fieldComponentMap } from "~/models/form";
+import { _set } from "~/lib/set";
 
 import MuiRhfTextField from "./MuiRhfTextField";
 
@@ -12,7 +13,7 @@ const MuiRhfForm: React.FC<MuiRhfFormProps> = ({
   watch,
   control,
   errors,
-  spacing = 1,
+  spacing,
 }) => {
   return (
     <>
@@ -118,9 +119,12 @@ const MuiRhfForm: React.FC<MuiRhfFormProps> = ({
                           conditionalKey
                         ];
 
-                        // FIXME: Support nested paths
-                        extra[path] = customCondition(
-                          conditionalWatchedValues[conditionalKey]
+                        _set(
+                          extra,
+                          path,
+                          customCondition(
+                            conditionalWatchedValues[conditionalKey]
+                          )
                         );
                       });
                     }
