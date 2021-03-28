@@ -28,14 +28,15 @@ const MuiRhfAutocomplete: React.FC<MuiRhfAutocompleteProps> = ({
     defaultValue={defaultValue}
     render={(props) => (
       <Autocomplete
+        fullWidth
         {...props}
         {...autocompleteProps}
         renderInput={(params) => (
           <TextField
-            {...params}
-            {...textFieldProps}
             error={!!errors?.[name]}
             helperText={errors?.[name]}
+            {...params}
+            {...textFieldProps}
           />
         )}
         onChange={(_, data) => {

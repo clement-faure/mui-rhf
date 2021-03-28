@@ -17,7 +17,7 @@ const MuiRhfSelect: React.FC<MuiRhfSelectProps> = ({
   errors,
   name,
   label,
-  defaultValue,
+  defaultValue = "",
   options,
   select: selectProps,
 }) => (
@@ -30,7 +30,13 @@ const MuiRhfSelect: React.FC<MuiRhfSelectProps> = ({
       return (
         <FormControl error={error}>
           <InputLabel id={name}>{label}</InputLabel>
-          <Select labelId={name} displayEmpty {...props} {...selectProps}>
+          <Select
+            labelId={name}
+            displayEmpty
+            fullWidth
+            {...props}
+            {...selectProps}
+          >
             {React.Children.toArray(
               options.map(({ value, label }) => (
                 <MenuItem value={value}>{label}</MenuItem>

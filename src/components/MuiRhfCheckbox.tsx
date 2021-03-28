@@ -15,7 +15,7 @@ const MuiRhfCheckbox: React.FC<MuiRhfCheckboxProps> = ({
   control,
   errors,
   name,
-  defaultValue,
+  defaultValue = false,
   label,
   required,
   disabled,

@@ -15,7 +15,8 @@ export type MuiRhfFieldComponentMap = {
   textField: React.FC<MuiRhfTextFieldProps>;
   select: React.FC<MuiRhfSelectProps>;
   checkbox: React.FC<MuiRhfCheckboxProps>;
-  autocomplete: React.FC<MuiRhfAutocompleteProps>;
+  autocompleteSingle: React.FC<MuiRhfAutocompleteProps>;
+  autocompleteMultiple: React.FC<MuiRhfAutocompleteProps>;
 };
 
 /** Form */
