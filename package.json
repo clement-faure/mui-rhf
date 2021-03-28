@@ -1,6 +1,6 @@
 {
   "name": "mui-rhf",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Form generator based on Material UI and React Hook Form",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
