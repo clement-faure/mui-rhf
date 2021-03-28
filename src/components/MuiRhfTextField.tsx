@@ -10,7 +10,7 @@ const MuiRhfTextField: React.FC<MuiRhfTextFieldProps> = ({
   control,
   errors,
   name,
-  defaultValue,
+  defaultValue = "",
   ...rest
 }) => (
   <Controller

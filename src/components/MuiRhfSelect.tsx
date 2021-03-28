@@ -17,7 +17,7 @@ const MuiRhfSelect: React.FC<MuiRhfSelectProps> = ({
   errors,
   name,
   label,
-  defaultValue,
+  defaultValue = "",
   options,
   select: selectProps,
 }) => (
