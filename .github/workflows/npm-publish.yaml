@@ -19,10 +19,22 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
+
       - name: Install dependencies
         run: yarn install
+
       - run: yarn lint
-      - run: yarn test:unit
+
+      - name: Unit tests
+        run: yarn test:unit
+
+      - name: Unit tests coverage
+      - run: yarn coverage:unit
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          flags: unittests # optional
         
   publish-module:
     name: "Publish Module to NPM"
@@ -37,9 +49,14 @@ jobs:
       with:
         node-version: 14
         registry-url: 'https://registry.npmjs.org'
+
     - name: Install dependencies
       run: yarn install
-    - run: yarn build
-    - run: npm publish
+
+    - name: Build project
+      run: yarn build
+
+    - name: Publish to npm
+      run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
