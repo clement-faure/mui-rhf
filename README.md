@@ -1,6 +1,13 @@
-# mui-rhf
+<h1 align="center">mui-rhf</h1>
+
+<div align="center">
+
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/clement-faure/mui-rhf/npm-publish)](https://github.com/clement-faure/mui-rhf/actions/workflows/npm-publish.yaml)
+![Codecov Coverage](https://img.shields.io/codecov/c/github/clement-faure/mui-rhf/master.svg)
 
 Quickly build powerful forms using [Material UI](https://material-ui.com/) and [React Hook Form](https://react-hook-form.com/)
+
+</div>
 
 ## Installation
 
