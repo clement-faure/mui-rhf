@@ -3,7 +3,7 @@
 <div align="center">
 
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/clement-faure/mui-rhf/npm-publish)](https://github.com/clement-faure/mui-rhf/actions/workflows/npm-publish.yaml)
-![Codecov Coverage](https://img.shields.io/codecov/c/github/clement-faure/mui-rhf/master.svg)
+[![codecov](https://img.shields.io/codecov/c/github/clement-faure/mui-rhf/master.svg)](https://codecov.io/gh/clement-faure/mui-rhf/branch/master)
 
 Quickly build powerful forms using [Material UI](https://material-ui.com/) and [React Hook Form](https://react-hook-form.com/)
 
