@@ -29,7 +29,7 @@ jobs:
         run: yarn test:unit
 
       - name: Unit tests coverage
-      - run: yarn coverage:unit
+        run: yarn coverage:unit
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
