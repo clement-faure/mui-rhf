@@ -31,7 +31,9 @@ jobs:
       - name: Unit tests coverage
         run: yarn coverage:unit
 
-      - name: Upload coverage to Codecov
+      - name: Upload unit tests coverage to Codecov
+        # upload unit test code coverage only when merged in master
+        if: github.repository == 'clement-faure/mui-rhf' && (github.ref == 'refs/heads/master')
         uses: codecov/codecov-action@v1
         with:
           flags: unittests # optional
