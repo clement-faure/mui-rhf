@@ -1,6 +1,6 @@
 {
   "name": "mui-rhf",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Form generator based on Material UI and React Hook Form",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,7 +22,8 @@
     "lint": "yarn eslint . --ext .js,.jsx,.ts,.tsx",
     "test:unit:dev": "jest --watch",
     "test:unit": "jest",
-    "coverage:unit": "jest --coverage; open coverage/lcov-report/index.html",
+    "coverage:unit": "jest --coverage",
+    "coverage:unit:open": "yarn coverage:unit; open coverage/lcov-report/index.html",
     "build": "rm -rf ./dist && cross-env NODE_ENV=production tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
     "start": "tsc -w"
   },
