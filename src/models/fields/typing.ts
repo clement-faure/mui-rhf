@@ -1,5 +1,6 @@
 import { Control, FieldErrors } from "react-hook-form";
 import { TextFieldProps, SelectProps, CheckboxProps } from "@material-ui/core";
+import { AutocompleteProps } from "@material-ui/lab";
 
 /** Common fields props */
 export type MuiRhfFieldProps = {
@@ -18,7 +19,7 @@ export type MuiRhfTextFieldProps = MuiRhfFieldProps &
 /** Select */
 export type MuiRhfSelectProps = MuiRhfFieldProps & {
   defaultValue?: unknown;
-  select?: SelectProps;
+  selectProps?: SelectProps;
   options: {
     value: string | number | readonly string[] | undefined;
     label: string;
@@ -34,7 +35,7 @@ export type MuiRhfCheckboxProps = MuiRhfFieldProps &
 /** Autocomplete */
 export type MuiRhfAutocompleteProps = MuiRhfFieldProps & {
   defaultValue?: unknown;
-  textField?: Omit<TextFieldProps, "onChange">;
+  textFieldProps?: Omit<TextFieldProps, "onChange">;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  autocomplete?: any;
+  autocompleteProps: any;
 };

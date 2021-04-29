@@ -20,7 +20,9 @@ export type MuiRhfFieldComponentMap = {
 };
 
 /** Form */
-type MuiRhfFormFieldCondition = { [key: string]: (value: unknown) => boolean };
+type MuiRhfFormFieldHideConditions = {
+  [key: string]: (value: unknown) => boolean;
+};
 type MuiRhfFormFieldConditionalProps = {
   [key: string]: [string, (value: unknown) => unknown];
 };
@@ -31,9 +33,9 @@ type MuiRhfFormField = {
   props?: any;
   type?: keyof MuiRhfFieldComponentMap;
   gridProps?: Pick<GridProps, "xs" | "sm" | "md" | "lg" | "xl">;
-  condition?: MuiRhfFormFieldCondition; // Union
-  conditions?: MuiRhfFormFieldCondition; // Intersection
-  conditionalProps?: MuiRhfFormFieldConditionalProps; // Props applied when condition is satisfied
+  hideCondition?: MuiRhfFormFieldHideConditions; // Union
+  hideConditions?: MuiRhfFormFieldHideConditions; // Intersection
+  conditionalProps?: MuiRhfFormFieldConditionalProps; // Props applied when hideCondition is satisfied
 };
 
 type MuiRhfFormHeader = {
