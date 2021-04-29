@@ -40,8 +40,8 @@ const MuiRhfForm: React.FC<MuiRhfFormProps> = ({
                   props = {},
                   gridProps = {},
                   type = "textField",
-                  condition,
-                  conditions,
+                  hideCondition,
+                  hideConditions,
                   conditionalProps,
                 }) => {
                   // Initialize dynamic props based on watched values
@@ -52,21 +52,21 @@ const MuiRhfForm: React.FC<MuiRhfFormProps> = ({
                     MuiRhfTextField; //fallback to textField in case not valid type
 
                   if (watch) {
-                    // Union will be used in condition keys
-                    if (condition) {
+                    // Union will be used in hideCondition keys
+                    if (hideCondition) {
                       let conditionHidden = true;
 
-                      // Retrieve conditions keys
-                      const conditionKeys = Object.keys(condition);
+                      // Retrieve hideConditions keys
+                      const conditionKeys = Object.keys(hideCondition);
 
                       // Retrieve watched values
                       const conditionWatchedValues = watch(conditionKeys);
 
-                      // Check conditions, we are actually doing an union of conditions
-                      // If at least one condition has been satisfied, display
+                      // Check hideConditions, we are actually doing an union of hideConditions
+                      // If at least one hideCondition has been satisfied, display
                       conditionKeys.forEach((conditionKey) => {
                         if (
-                          condition[conditionKey](
+                          hideCondition[conditionKey](
                             conditionWatchedValues[conditionKey]
                           )
                         ) {
@@ -79,21 +79,21 @@ const MuiRhfForm: React.FC<MuiRhfFormProps> = ({
                       }
                     }
 
-                    // Intersection will be used in conditions keys
-                    if (conditions) {
+                    // Intersection will be used in hideConditions keys
+                    if (hideConditions) {
                       let conditionsHidden = false;
 
-                      // Retrieve conditions keys
-                      const conditionsKeys = Object.keys(conditions);
+                      // Retrieve hideConditions keys
+                      const conditionsKeys = Object.keys(hideConditions);
 
                       // Retrieve watched values
                       const conditionsWatchedValues = watch(conditionsKeys);
 
-                      // Check conditions, we are actually doing an union of conditions
-                      // All condition needs to be satisfied to display the field
+                      // Check hideConditions, we are actually doing an union of hideConditions
+                      // All hideCondition needs to be satisfied to display the field
                       conditionsKeys.forEach((conditionsKey) => {
                         if (
-                          !conditions[conditionsKey](
+                          !hideConditions[conditionsKey](
                             conditionsWatchedValues[conditionsKey]
                           )
                         ) {
@@ -107,13 +107,13 @@ const MuiRhfForm: React.FC<MuiRhfFormProps> = ({
                     }
 
                     if (conditionalProps) {
-                      // Retrieve conditions keys
+                      // Retrieve hideConditions keys
                       const conditionalKeys = Object.keys(conditionalProps);
 
                       // Retrieve watched values
                       const conditionalWatchedValues = watch(conditionalKeys);
 
-                      // Check conditions
+                      // Check hideConditions
                       conditionalKeys.forEach((conditionalKey) => {
                         const [path, customCondition] = conditionalProps[
                           conditionalKey

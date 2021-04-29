@@ -76,9 +76,9 @@ type MuiRhfFormField = {
   props?: any;
   type?: keyof MuiRhfFieldComponentMap;
   gridProps?: Pick<GridProps, "xs" | "sm" | "md" | "lg" | "xl">;
-  condition?: MuiRhfFormFieldCondition; // Union of conditions
-  conditions?: MuiRhfFormFieldCondition; // Intersection of conditions
-  conditionalProps?: MuiRhfFormFieldConditionalProps; // Props applied when condition is satisfied
+  hideCondition?: MuiRhfFormFieldHideConditions; // Union of conditions, if true, field will be hidden
+  hideConditions?: MuiRhfFormFieldHideConditions; // Intersection of conditions, if true, field will be hidden
+  conditionalProps?: MuiRhfFormFieldConditionalProps; // Extra props applied depending on other form fields values
 };
 ```
 

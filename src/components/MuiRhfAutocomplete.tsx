@@ -2,25 +2,18 @@ import * as React from "react";
 
 import { Controller } from "react-hook-form";
 
-import { TextField, TextFieldProps } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 
-import { MuiRhfFieldProps } from "~/models/fields";
-
-type MuiRhfAutocompleteProps = MuiRhfFieldProps & {
-  defaultValue?: unknown;
-  textField?: Omit<TextFieldProps, "onChange">;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  autocomplete?: any;
-};
+import { MuiRhfAutocompleteProps } from "~/models/fields";
 
 const MuiRhfAutocomplete: React.FC<MuiRhfAutocompleteProps> = ({
   control,
   errors,
   name,
   defaultValue,
-  textField: textFieldProps,
-  autocomplete: autocompleteProps,
+  textFieldProps,
+  autocompleteProps,
 }) => (
   <Controller
     name={name}
