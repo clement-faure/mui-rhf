@@ -1,11 +1,9 @@
-import { Control, FieldErrors } from "react-hook-form";
+import { Control } from "react-hook-form";
 import { TextFieldProps, SelectProps, CheckboxProps } from "@material-ui/core";
-import { AutocompleteProps } from "@material-ui/lab";
 
 /** Common fields props */
 export type MuiRhfFieldProps = {
   control: Control;
-  errors: FieldErrors;
   name: string;
   label?: string;
 };

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 import { Controller } from "react-hook-form";
 
@@ -14,7 +14,6 @@ import { MuiRhfSelectProps } from "~/models/fields";
 
 const MuiRhfSelect: React.FC<MuiRhfSelectProps> = ({
   control,
-  errors,
   name,
   label,
   defaultValue = "",
@@ -25,16 +24,15 @@ const MuiRhfSelect: React.FC<MuiRhfSelectProps> = ({
     name={name}
     defaultValue={defaultValue}
     control={control}
-    render={(props) => {
-      const error = errors?.[name];
+    render={({ field, fieldState: { error } }) => {
       return (
-        <FormControl error={error}>
+        <FormControl error={!!error}>
           <InputLabel id={name}>{label}</InputLabel>
           <Select
             labelId={name}
             displayEmpty
             fullWidth
-            {...props}
+            {...field}
             {...selectProps}
           >
             {React.Children.toArray(
@@ -43,7 +41,7 @@ const MuiRhfSelect: React.FC<MuiRhfSelectProps> = ({
               ))
             )}
           </Select>
-          {error && <FormHelperText>{error}</FormHelperText>}
+          {error && <FormHelperText>{error.message}</FormHelperText>}
         </FormControl>
       );
     }}

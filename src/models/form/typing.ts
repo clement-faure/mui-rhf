@@ -1,4 +1,4 @@
-import { Control, FieldErrors } from "react-hook-form";
+import { Control } from "react-hook-form";
 import { GridSpacing, GridProps } from "@material-ui/core";
 import {
   MuiRhfTextFieldProps,
@@ -27,7 +27,7 @@ type MuiRhfFormFieldConditionalProps = {
   [key: string]: [string, (value: unknown) => unknown];
 };
 
-type MuiRhfFormField = {
+export type MuiRhfFormField = {
   name: string;
   label?: string;
   props?: any;
@@ -38,7 +38,7 @@ type MuiRhfFormField = {
   conditionalProps?: MuiRhfFormFieldConditionalProps; // Props applied when hideCondition is satisfied
 };
 
-type MuiRhfFormHeader = {
+export type MuiRhfFormHeader = {
   title?: string;
 };
 
@@ -48,5 +48,4 @@ export type MuiRhfFormProps = {
   spacing?: GridSpacing;
   watch?: RhfWatch;
   control: Control;
-  errors: FieldErrors;
 };

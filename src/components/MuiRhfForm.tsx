@@ -12,7 +12,6 @@ const MuiRhfForm: React.FC<MuiRhfFormProps> = ({
   headers,
   watch,
   control,
-  errors,
   spacing,
 }) => {
   return (
@@ -115,9 +114,8 @@ const MuiRhfForm: React.FC<MuiRhfFormProps> = ({
 
                       // Check hideConditions
                       conditionalKeys.forEach((conditionalKey) => {
-                        const [path, customCondition] = conditionalProps[
-                          conditionalKey
-                        ];
+                        const [path, customCondition] =
+                          conditionalProps[conditionalKey];
 
                         _set(
                           extra,
@@ -143,7 +141,6 @@ const MuiRhfForm: React.FC<MuiRhfFormProps> = ({
                         label={label}
                         name={name}
                         control={control}
-                        errors={errors}
                       />
                     </Grid>
                   );

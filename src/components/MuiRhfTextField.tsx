@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 import { Controller } from "react-hook-form";
 
@@ -8,7 +8,6 @@ import { MuiRhfTextFieldProps } from "~/models/fields";
 
 const MuiRhfTextField: React.FC<MuiRhfTextFieldProps> = ({
   control,
-  errors,
   name,
   defaultValue = "",
   ...rest
@@ -17,12 +16,12 @@ const MuiRhfTextField: React.FC<MuiRhfTextFieldProps> = ({
     name={name}
     defaultValue={defaultValue}
     control={control}
-    render={(props) => (
+    render={({ field, fieldState: { error } }) => (
       <TextField
         fullWidth
-        error={!!errors?.[name]}
-        helperText={errors?.[name]}
-        {...props}
+        error={!!error}
+        helperText={error?.message}
+        {...field}
         {...rest}
       />
     )}
