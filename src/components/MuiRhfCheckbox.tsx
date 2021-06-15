@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 import { Controller } from "react-hook-form";
 
@@ -13,7 +13,6 @@ import { MuiRhfCheckboxProps } from "~/models/fields";
 
 const MuiRhfCheckbox: React.FC<MuiRhfCheckboxProps> = ({
   control,
-  errors,
   name,
   defaultValue = false,
   label,
@@ -25,10 +24,9 @@ const MuiRhfCheckbox: React.FC<MuiRhfCheckboxProps> = ({
     name={name}
     defaultValue={defaultValue}
     control={control}
-    render={({ field: { onChange, /*onBlur, */ value, ref } }) => {
-      const error = !!errors?.[name];
+    render={({ field: { onChange, value, ref }, fieldState: { error } }) => {
       return (
-        <FormControl required={required} disabled={disabled} error={error}>
+        <FormControl required={required} disabled={disabled} error={!!error}>
           <FormControlLabel
             inputRef={ref}
             checked={value}
@@ -38,7 +36,7 @@ const MuiRhfCheckbox: React.FC<MuiRhfCheckboxProps> = ({
             control={<Checkbox {...rest} />}
             label={label}
           />
-          {error && <FormHelperText>{error}</FormHelperText>}
+          {error && <FormHelperText>{error.message}</FormHelperText>}
         </FormControl>
       );
     }}

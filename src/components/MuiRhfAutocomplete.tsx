@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 import { Controller } from "react-hook-form";
 
@@ -9,7 +9,6 @@ import { MuiRhfAutocompleteProps } from "~/models/fields";
 
 const MuiRhfAutocomplete: React.FC<MuiRhfAutocompleteProps> = ({
   control,
-  errors,
   name,
   defaultValue,
   textFieldProps,
@@ -19,15 +18,15 @@ const MuiRhfAutocomplete: React.FC<MuiRhfAutocompleteProps> = ({
     name={name}
     control={control}
     defaultValue={defaultValue}
-    render={({ field }) => (
+    render={({ field, fieldState: { error } }) => (
       <Autocomplete
         fullWidth
         {...field}
         {...autocompleteProps}
         renderInput={(params) => (
           <TextField
-            error={!!errors?.[name]}
-            helperText={errors?.[name]}
+            error={!!error}
+            helperText={error?.message}
             {...params}
             {...textFieldProps}
           />

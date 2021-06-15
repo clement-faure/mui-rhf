@@ -24,7 +24,7 @@ yarn add mui-rhf
 ## Usage
 
 ```
-import * as React from 'react';
+import React from 'react';
 
 import { useForm } from "react-hook-form";
 import { MuiRhfForm } from "mui-rhf";
@@ -32,7 +32,7 @@ import { Button } from "@material-ui/core";
 
 const Form = ({ onSubmit }) => {
   // Initialize form
-  const { control, errors, handleSubmit } = useForm();
+  const { control, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     // Play with retrieved data
@@ -42,7 +42,6 @@ const Form = ({ onSubmit }) => {
     <form onSubmit={handleSubmit(onSubmit)} noValidate>
       <MuiRhfForm
         control={control}
-        errors={errors}
         fields={[
           [{ name: "firstName" }, { name: "lastName" }],
           [{ name: "email" }],
@@ -103,10 +102,6 @@ Provided by [React Hook Form](https://react-hook-form.com/api#watch)
 #### control: Control;
 
 Provided by [React Hook Form](https://react-hook-form.com/api#control)
-
-#### errors: FieldErrors;
-
-Provided by [React Hook Form](https://react-hook-form.com/api#errors)
 
 ## Contributors ✨
 
