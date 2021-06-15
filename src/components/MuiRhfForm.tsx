@@ -115,9 +115,8 @@ const MuiRhfForm: React.FC<MuiRhfFormProps> = ({
 
                       // Check hideConditions
                       conditionalKeys.forEach((conditionalKey) => {
-                        const [path, customCondition] = conditionalProps[
-                          conditionalKey
-                        ];
+                        const [path, customCondition] =
+                          conditionalProps[conditionalKey];
 
                         _set(
                           extra,

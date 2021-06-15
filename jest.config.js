@@ -5,6 +5,7 @@ module.exports = {
     "^.+\\.(t|j)sx?$": "ts-jest",
   },
   testRegex: "(/tests/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+  testEnvironment: "jsdom",
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   moduleNameMapper: {
     "~/(.*)": "<rootDir>/src/$1",

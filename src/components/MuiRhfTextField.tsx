@@ -17,12 +17,12 @@ const MuiRhfTextField: React.FC<MuiRhfTextFieldProps> = ({
     name={name}
     defaultValue={defaultValue}
     control={control}
-    render={(props) => (
+    render={({ field }) => (
       <TextField
         fullWidth
         error={!!errors?.[name]}
         helperText={errors?.[name]}
-        {...props}
+        {...field}
         {...rest}
       />
     )}

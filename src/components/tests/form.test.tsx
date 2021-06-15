@@ -10,7 +10,10 @@ import { MuiRhfForm } from "../";
 describe("Form render", () => {
   it("render basic form", () => {
     const { result } = renderHook(() => useForm());
-    const { control, errors /**, loading */ } = result.current;
+    const {
+      control,
+      formState: { errors } /**, loading */,
+    } = result.current;
     render(
       <MuiRhfForm
         control={control}
@@ -26,7 +29,10 @@ describe("Form render", () => {
 
   it("render complex form", () => {
     const { result } = renderHook(() => useForm());
-    const { control, errors /**, loading */ } = result.current;
+    const {
+      control,
+      formState: { errors } /**, loading */,
+    } = result.current;
     render(
       <MuiRhfForm
         control={control}
@@ -58,7 +64,10 @@ describe("Form render", () => {
 
   it("render basic form with hideConditions", () => {
     const { result } = renderHook(() => useForm());
-    const { control, errors /**, loading */ } = result.current;
+    const {
+      control,
+      formState: { errors } /**, loading */,
+    } = result.current;
     render(
       <MuiRhfForm
         control={control}

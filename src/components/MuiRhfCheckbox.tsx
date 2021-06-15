@@ -25,7 +25,7 @@ const MuiRhfCheckbox: React.FC<MuiRhfCheckboxProps> = ({
     name={name}
     defaultValue={defaultValue}
     control={control}
-    render={({ onChange, /*onBlur, */ value, ref }) => {
+    render={({ field: { onChange, /*onBlur, */ value, ref } }) => {
       const error = !!errors?.[name];
       return (
         <FormControl required={required} disabled={disabled} error={error}>

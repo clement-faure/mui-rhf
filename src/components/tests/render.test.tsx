@@ -16,14 +16,20 @@ import {
 describe("Basic render", () => {
   it("render MuiRhfTextField", () => {
     const { result } = renderHook(() => useForm());
-    const { control, errors /**, loading */ } = result.current;
+    const {
+      control,
+      formState: { errors } /**, loading */,
+    } = result.current;
     render(
       <MuiRhfTextField control={control} errors={errors} name="textField" />
     );
   });
   it("render MuiRhfAutocompleteSingle", () => {
     const { result } = renderHook(() => useForm());
-    const { control, errors /**, loading */ } = result.current;
+    const {
+      control,
+      formState: { errors } /**, loading */,
+    } = result.current;
     render(
       <MuiRhfAutocompleteSingle
         control={control}
@@ -38,7 +44,10 @@ describe("Basic render", () => {
 
   it("render MuiRhfAutocompleteMultiple", () => {
     const { result } = renderHook(() => useForm());
-    const { control, errors /**, loading */ } = result.current;
+    const {
+      control,
+      formState: { errors } /**, loading */,
+    } = result.current;
     render(
       <MuiRhfAutocompleteMultiple
         control={control}
@@ -53,7 +62,10 @@ describe("Basic render", () => {
 
   it("render MuiRhfCheckbox", () => {
     const { result } = renderHook(() => useForm());
-    const { control, errors /**, loading */ } = result.current;
+    const {
+      control,
+      formState: { errors } /**, loading */,
+    } = result.current;
     render(
       <MuiRhfCheckbox control={control} errors={errors} name="checkboxField" />
     );
@@ -61,7 +73,10 @@ describe("Basic render", () => {
 
   it("render MuiRhfSelect", () => {
     const { result } = renderHook(() => useForm());
-    const { control, errors /**, loading */ } = result.current;
+    const {
+      control,
+      formState: { errors } /**, loading */,
+    } = result.current;
     render(
       <MuiRhfSelect
         control={control}

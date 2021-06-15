@@ -19,10 +19,10 @@ const MuiRhfAutocomplete: React.FC<MuiRhfAutocompleteProps> = ({
     name={name}
     control={control}
     defaultValue={defaultValue}
-    render={(props) => (
+    render={({ field }) => (
       <Autocomplete
         fullWidth
-        {...props}
+        {...field}
         {...autocompleteProps}
         renderInput={(params) => (
           <TextField
@@ -33,7 +33,7 @@ const MuiRhfAutocomplete: React.FC<MuiRhfAutocompleteProps> = ({
           />
         )}
         onChange={(_, data) => {
-          props.onChange(data);
+          field.onChange(data);
         }}
       />
     )}

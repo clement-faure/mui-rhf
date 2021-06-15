@@ -25,7 +25,7 @@ const MuiRhfSelect: React.FC<MuiRhfSelectProps> = ({
     name={name}
     defaultValue={defaultValue}
     control={control}
-    render={(props) => {
+    render={({ field }) => {
       const error = errors?.[name];
       return (
         <FormControl error={error}>
@@ -34,7 +34,7 @@ const MuiRhfSelect: React.FC<MuiRhfSelectProps> = ({
             labelId={name}
             displayEmpty
             fullWidth
-            {...props}
+            {...field}
             {...selectProps}
           >
             {React.Children.toArray(
