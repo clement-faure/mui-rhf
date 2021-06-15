@@ -10,14 +10,10 @@ import { MuiRhfForm } from "../";
 describe("Form render", () => {
   it("render basic form", () => {
     const { result } = renderHook(() => useForm());
-    const {
-      control,
-      formState: { errors } /**, loading */,
-    } = result.current;
+    const { control } = result.current;
     render(
       <MuiRhfForm
         control={control}
-        errors={errors}
         fields={[
           [{ name: "firstName" }, { name: "lastName" }],
           [{ name: "email" }],
@@ -29,14 +25,10 @@ describe("Form render", () => {
 
   it("render complex form", () => {
     const { result } = renderHook(() => useForm());
-    const {
-      control,
-      formState: { errors } /**, loading */,
-    } = result.current;
+    const { control } = result.current;
     render(
       <MuiRhfForm
         control={control}
-        errors={errors}
         headers={[{ title: "Company section" }]}
         fields={[
           [
@@ -64,14 +56,10 @@ describe("Form render", () => {
 
   it("render basic form with hideConditions", () => {
     const { result } = renderHook(() => useForm());
-    const {
-      control,
-      formState: { errors } /**, loading */,
-    } = result.current;
+    const { control } = result.current;
     render(
       <MuiRhfForm
         control={control}
-        errors={errors}
         fields={[
           [
             { name: "firstName" },

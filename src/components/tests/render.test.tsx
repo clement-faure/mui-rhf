@@ -16,24 +16,15 @@ import {
 describe("Basic render", () => {
   it("render MuiRhfTextField", () => {
     const { result } = renderHook(() => useForm());
-    const {
-      control,
-      formState: { errors } /**, loading */,
-    } = result.current;
-    render(
-      <MuiRhfTextField control={control} errors={errors} name="textField" />
-    );
+    const { control } = result.current;
+    render(<MuiRhfTextField control={control} name="textField" />);
   });
   it("render MuiRhfAutocompleteSingle", () => {
     const { result } = renderHook(() => useForm());
-    const {
-      control,
-      formState: { errors } /**, loading */,
-    } = result.current;
+    const { control } = result.current;
     render(
       <MuiRhfAutocompleteSingle
         control={control}
-        errors={errors}
         name="autocompleteSingleField"
         autocompleteProps={{
           options: [],
@@ -44,14 +35,10 @@ describe("Basic render", () => {
 
   it("render MuiRhfAutocompleteMultiple", () => {
     const { result } = renderHook(() => useForm());
-    const {
-      control,
-      formState: { errors } /**, loading */,
-    } = result.current;
+    const { control } = result.current;
     render(
       <MuiRhfAutocompleteMultiple
         control={control}
-        errors={errors}
         name="autocompleteMultipleField"
         autocompleteProps={{
           options: [],
@@ -62,28 +49,13 @@ describe("Basic render", () => {
 
   it("render MuiRhfCheckbox", () => {
     const { result } = renderHook(() => useForm());
-    const {
-      control,
-      formState: { errors } /**, loading */,
-    } = result.current;
-    render(
-      <MuiRhfCheckbox control={control} errors={errors} name="checkboxField" />
-    );
+    const { control } = result.current;
+    render(<MuiRhfCheckbox control={control} name="checkboxField" />);
   });
 
   it("render MuiRhfSelect", () => {
     const { result } = renderHook(() => useForm());
-    const {
-      control,
-      formState: { errors } /**, loading */,
-    } = result.current;
-    render(
-      <MuiRhfSelect
-        control={control}
-        errors={errors}
-        name="selectField"
-        options={[]}
-      />
-    );
+    const { control } = result.current;
+    render(<MuiRhfSelect control={control} name="selectField" options={[]} />);
   });
 });
